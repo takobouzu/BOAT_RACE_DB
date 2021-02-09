@@ -6,10 +6,8 @@ BOAT_RACE_DBは、[BOATRACEオフィシャルサイト](https://www.boatrace.jp/
 
 - [動作環境](#動作環境)
 - [インストールと初期設定](#インストールと初期設定)
-- [データベース・テーブル構成](#データベース・テーブル構成)
-- [ファイル・フォルダ構成](#ファイル・フォルダ構成)
 - [データ検索方法](#データ検索方法)
-- [活用方法や検索SQLサンプルはWikiに掲載](https://github.com/takobouzu/BOAT_RACE_DB/wiki)
+- [スクリプトファイル構造・データベーステーブル構造および活用方法や検索SQLサンプル等はWikiに掲載](https://github.com/takobouzu/BOAT_RACE_DB/wiki)
 - [ライセンス](#ライセンス)
 
 # 動作環境
