@@ -8,10 +8,7 @@ BOAT_RACE_DBは、[BOATRACEオフィシャルサイト](https://www.boatrace.jp/
 - [インストールと初期設定](#インストールと初期設定)
 - [データベース・テーブル構成](#データベース・テーブル構成)
 - [ファイル・フォルダ構成](#ファイル・フォルダ構成)
-- [データ登録方法](#データ登録方法)
-- [マスタデータ登録方法](#マスタデータ登録方法)
 - [データ検索方法](#データ検索方法)
-- [ファイル・フォルダ構成](#ファイル・フォルダ構成)
 - [活用方法や検索SQLサンプルはWikiに掲載](https://github.com/takobouzu/BOAT_RACE_DB/wiki)
 - [ライセンス](#ライセンス)
 
@@ -65,7 +62,7 @@ git clone https://github.com/takobouzu/BOAT_RACE_DB.git
 ```
 ※リポジトリーのclone先を/home/pi以外に設定した場合は、crontabの定義をインストール先のパスに変更し、各スクリプトに定義している「BASE_DIR=/home/pi」の定義を変更する。
 
-##　macOSで使用する場合の相違点
+## macOSで使用する場合の相違点
 
 Raspbian OSとmacOSでは、dateコマンドのオプションが異なるため、dateコマンドを使用しているファイル「/home/pi/BOAT_RACE_DB/100_get_race_list/001_get_race_list.sh」のdateコマンドを書き換える必要がある。
 
@@ -74,7 +71,7 @@ Raspbian OSとmacOSでは、dateコマンドのオプションが異なるため
 |YESTERDAY=`date --date '1 day ago' "+%Y%m%d"`|YESTERDAY=`date -v -1d "+%Y%m%d"`|
 |TODAY=`date --date '0 day ago' "+%Y%m%d"`    |TODAY=`date -v -0d "+%Y%m%d"`|
 
-##　場コードマスタ登録
+## 場コードマスタ登録
 スクリプト「/home/pi/BOAT_RACE_DB/310_tools/110_m_pool_code/m_pool_code_import.sh」を実行して、場コードマスタをデーターベースに登録する。
 
 ## 選手マスタ登録
