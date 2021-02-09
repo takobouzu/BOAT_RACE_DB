@@ -12,7 +12,7 @@ BOAT_RACE_DBは、[BOATRACEオフィシャルサイト](https://www.boatrace.jp/
 
 # 動作環境
 
-Python3とSQLite3が動作するLinux系OSで動作する。
+Python3とSQLite3が動作するLinux系OSで動作する。Windows系OSでも、ファイル拡張子「.sh」のシェルスクリプトをPowerShellなどに書き換えることで動作させることが可能である。
 
 筆者はRaspberry Pi 4 Model B/8GB(Raspbian OS)で運用している。
 
