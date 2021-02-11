@@ -26,7 +26,7 @@ def mkcsv_x_race_h():
     holding_name_arry = ['ナイター', 'モーニング', 'サマータイム']
     event_date_name_arry = ['初日日','１日目','２日目','３日目','４日目','５日目','最終日']
 
-    in_path  = BASE_DIR + '/200_html/race_table'
+    in_path  = BASE_DIR + '/200_html/x_race_table'
     out_file = BASE_DIR + '/210_csv/x_race_h.csv'
     fw = open(out_file, 'w')
     for item in os.listdir(path=in_path):
