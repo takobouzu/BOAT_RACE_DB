@@ -86,7 +86,7 @@ SQLite3をサポートしているライブラリやドライバーを使うこ�
 
 ![DB Browser for SQLite](https://user-images.githubusercontent.com/24547343/82280700-6c70d980-99ca-11ea-937d-0517dbba0967.jpg)
 
-# バクフィックス
+# バグフィックス
 
 * 2021.03.01 開催日「初日」なのに、テーブル[t_race_t]の[event_date]に[初日]が設定されてない。[対策方法はこちら](https://github.com/takobouzu/BOAT_RACE_DB/wiki/3006.テーブルt_race_tのevent_dateに「初日」が設定されない場合のデータパッチ)
 * 
