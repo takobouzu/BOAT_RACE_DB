@@ -24,7 +24,7 @@ def mkcsv_x_race_t():
     grade_name_arry = ['一般・若手', '一般・女子', '一般', 'Ｇ１・女子', 'Ｇ１・女子', 'Ｇ２・女子', 'Ｇ２・女子', 'Ｇ３・女子', 'Ｇ３・女子','ＳＧ', 'ＳＧ', 'Ｇ１', 'Ｇ１', 'Ｇ２', 'Ｇ２', 'Ｇ３', 'Ｇ３']
     holding_class_arry = ['is-nighter', 'is-morning', 'is-summer']
     holding_name_arry = ['ナイター', 'モーニング', 'サマータイム']
-    event_date_name_arry = ['初日日','１日目','２日目','３日目','４日目','５日目','最終日']
+    event_date_name_arry = ['初日','１日目','２日目','３日目','４日目','５日目','６日目','７日目','最終日']
 
     in_path  = BASE_DIR + '/200_html/today'
     out_file = BASE_DIR + '/210_csv/x_race_t.csv'
