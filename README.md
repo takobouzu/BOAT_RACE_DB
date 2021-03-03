@@ -8,8 +8,7 @@ BOAT_RACE_DBは、[BOATRACEオフィシャルサイト](https://www.boatrace.jp/
 - [インストールと初期設定](#インストールと初期設定)
 - [データ検索方法](#データ検索方法)
 - [スクリプトファイル構造・データベーステーブル構造および活用方法や検索SQLサンプル等はWikiに掲載](https://github.com/takobouzu/BOAT_RACE_DB/wiki)
-- [バグフィックス](#バグフィックス)
-- [エンハンス](#エンハンス)
+- [バグフィックスとエンハンス](#バグフィックスとエンハンス)
 - [ライセンス](#ライセンス)
 
 # 動作環境
@@ -86,18 +85,10 @@ SQLite3をサポートしているライブラリやドライバーを使うこ�
 
 ![DB Browser for SQLite](https://user-images.githubusercontent.com/24547343/82280700-6c70d980-99ca-11ea-937d-0517dbba0967.jpg)
 
-# バグフィックス
+# バグフィックスとエンハンス
 
-* 2021.03.01 開催日「初日」なのに、テーブル[t_race_t]の[event_date]に[初日]が設定されてない。[対策方法はこちら](https://github.com/takobouzu/BOAT_RACE_DB/wiki/3006.テーブルt_race_tのevent_dateに「初日」が設定されない場合のデータパッチ)
+バグフィックスとエンハンスバグフィックスとエンハンスバグフィックスとエンハンスに関しては、()
 
-* 2021.03.02 開催日「初日」なのに、テーブル[x_race_t]の[event_date]に[初日]が設定されてない。[対策方法はこちら](https://github.com/takobouzu/BOAT_RACE_DB/wiki/3007.テーブルx_race_tのevent_dateに「初日」が設定されない場合のデータパッチ)
-
-* 2021.03.03 レース結果でフライング時にテーブルt_result_dのstart_timeに正しい値が設定されていない.[対策方法はこちら](https://github.com/takobouzu/BOAT_RACE_DB/wiki/3009.レース結果でフライング時にテーブルt_result_dのstart_timeに正しい値が設定されていない場合のデータパッチ
-)
-
-* 2021.02.26 直前情報で部品交換があった選手の調整重量がテーブル「t_info_d」に登録されない。スクリプトの改修予定。データ修正用スクリプト提供予定。
-
-# エンハンス
 
 # ライセンス
 
