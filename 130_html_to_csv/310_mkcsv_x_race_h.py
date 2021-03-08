@@ -4,13 +4,14 @@
 【機能仕様】出走表HTMLファイルからレース情報タイトルテーブル「x_race_h」のインポートCSVファイルを作成する
 【動作環境】macOS 11.1/Raspbian OS 10.4/python 3.9.1/sqlite3 3.32.3
 【来　　歴】2021.02.01 ver 1.00
+            2021.03.08 ver 1.01 投票締切時刻ズレる現象の対策
 '''
+import re
 import os
 import datetime
 from bs4 import BeautifulSoup
 #インストールディレクトの定義
 BASE_DIR = '/home/pi/BOAT_RACE_DB'
-
 '''
 【関　数】mkcsv_t_race_t
 【機　能】出走表HTMLファイルから出走表ヘッダテーブル「t_race_h」のインポートCSVファイルを作成する
@@ -71,16 +72,15 @@ def mkcsv_x_race_h():
                                 t_race_h_pool_name = t_race_h_pool_name.replace('alt="','')
                                 t_race_h_pool_name = t_race_h_pool_name.replace('"','')         
                 #レース締切予定時間
+                # Ver 1.01 bugfix start
                 n = 0
+                pattern = r"[0-1][0-9]:[0-5][0-9]"
                 for tag1 in soup.find_all('td'):
-                    if ':' in str(tag1):
-                        for tag2 in str(tag1).splitlines():
-                            if '<td class="">' in str(tag2):
-                                n = n + 1
-                                if n == int(t_race_h_race_no):
-                                    t_race_h_scheduled_deadline = str(tag2)
-                                    t_race_h_scheduled_deadline = t_race_h_scheduled_deadline.replace('<td class="">', '')
-                                    t_race_h_scheduled_deadline = t_race_h_scheduled_deadline.replace('</td>', '')
+                    if re.compile(pattern).search(str(tag1)):
+                        n = n + 1
+                        if n == int(t_race_h_race_no):
+                            wk_arry = str(tag1).split('>')
+                            t_race_h_scheduled_deadline = wk_arry[1].replace('</td', '')
                 #レース名
                 for tag1 in soup.find_all('span'):
                     if 'heading2_titleDetail is-type1' in str(tag1):
@@ -88,6 +88,7 @@ def mkcsv_x_race_h():
                             if 'heading2_titleDetail is-type1' in str(tag2):
                                 t_race_h_race_name = str(tag2).strip()
                                 t_race_h_race_name = t_race_h_race_name.replace('<span class="heading2_titleDetail is-type1">','')
+                 # Ver 1.01 bugfix end
                 #距離
                 for tag1 in soup.find_all('span'):
                     if 'm' in str(tag1):
