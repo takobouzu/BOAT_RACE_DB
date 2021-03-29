@@ -5,6 +5,7 @@
 【動作環境】macOS 11.1/Raspbian OS 10.4/python 3.9.1/sqlite3 3.32.3
 【来　　歴】2021.02.01 ver 1.00
             2021.03.08 ver 1.01 投票締切時刻ズレる現象の対策
+            2021.03.29 ver 1.02 ナイターのみ20時以降の投票締切時刻が登録されない対策
 '''
 import re
 import os
@@ -74,7 +75,9 @@ def mkcsv_x_race_h():
                 #レース締切予定時間
                 # Ver 1.01 bugfix start
                 n = 0
-                pattern = r"[0-1][0-9]:[0-5][0-9]"
+                # Ver 1.02 bugfix start
+                pattern = r"[0-2][0-9]:[0-5][0-9]"
+                # Ver 1.02 bugfix start
                 for tag1 in soup.find_all('td'):
                     if re.compile(pattern).search(str(tag1)):
                         n = n + 1
