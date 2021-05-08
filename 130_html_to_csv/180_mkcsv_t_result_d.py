@@ -5,6 +5,7 @@
 【動作環境】macOS 11.1/Raspbian OS 10.4/python 3.9.1/sqlite3 3.32.3
 【来　　歴】2021.02.01 ver 1.00
             2021.03.03 ver 1.01 フライング時にSTが不正になるバグ対策
+            2021.05.08 Ver 1.02 出遅れ時にフライング区分にLが記録されていない対策
 '''
 import os
 import datetime
@@ -81,6 +82,15 @@ def mkcsv_t_result_d():
                             if n == 3:
                                 wk_arry = str(tag2).split('>')
                                 t_result_d_ranking = str(wk_arry[1]).replace('</td', '')
+                                # Ver 1.02 add code start
+                                if t_result_d_ranking == 'Ｆ':
+                                    t_result_d_flying = 'F'
+                                else:
+                                    if t_result_d_ranking == 'Ｌ':
+                                        t_result_d_flying = 'L'
+                                    else:
+                                        t_result_d_flying = ' '
+                                # Ver 1.02 add code end
                                 break
                         #レースタイム
                         n = 0
@@ -116,14 +126,10 @@ def mkcsv_t_result_d():
                                 t_result_d_start_time = t_result_d_start_time.replace('<span class="table1_boatImage1TimeInner is-fBold is-fColor1">','')
                                 #Ver 1.01 bug fix　end
                                 if 'F' in t_result_d_start_time:
-                                    t_result_d_flying = 'F'
                                     t_result_d_start_time = t_result_d_start_time.replace('F', '')
                                 else:
                                     if 'L' in t_result_d_start_time:
-                                        t_result_d_flying = 'L'
                                         t_result_d_start_time = t_result_d_start_time.replace('L', '')
-                                    else:
-                                        t_result_d_flying = ' '
                         #CSVレコードの生成
                         t_result_d_outrec = ''
                         t_result_d_outrec = t_result_d_outrec + '"' + t_result_d_yyyymmdd + '"'         #開催日付
